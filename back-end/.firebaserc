@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "ethereum-chatbot",
+    "default": "ethereum-chatbot"
+  }
+}
