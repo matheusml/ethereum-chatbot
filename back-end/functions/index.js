@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post("/messages", (_, response) => {
-  response.send(getRandomMessage());
+  response.json({ message: getRandomMessage(), author: "Chatbot" });
 });
 
 exports.messages = functions.https.onRequest(app);
