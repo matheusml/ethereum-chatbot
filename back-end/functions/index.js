@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get("/messages", (_, response) => {
+app.post("/messages", (_, response) => {
   response.send(getRandomMessage());
 });
 
