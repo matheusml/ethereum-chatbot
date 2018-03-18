@@ -7,11 +7,12 @@ const getRandomMessage = require("./services/randomMessages").getRandomMessage;
 
 const app = express();
 
-app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.post("/messages", (_, response) => {
-  response.json({ message: getRandomMessage(), author: "Chatbot" });
+  response.json({ message: getRandomMessage(), sender: "Chatbot" });
 });
 
 exports.messages = functions.https.onRequest(app);
