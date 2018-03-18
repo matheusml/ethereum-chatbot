@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageList should match snapshot 1`] = `
+<RCTScrollView
+  data={
+    Array [
+      Object {
+        "message": "new message",
+        "sender": "Sender",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  inverted={true}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onContentSizeChange={[Function]}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  style={
+    Array [
+      Object {
+        "transform": Array [
+          Object {
+            "scaleY": -1,
+          },
+        ],
+      },
+      undefined,
+    ]
+  }
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={
+        Array [
+          Object {
+            "flexDirection": "column-reverse",
+          },
+          Object {
+            "transform": Array [
+              Object {
+                "scaleY": -1,
+              },
+            ],
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Object {
+            "borderBottomColor": "#eee",
+            "borderBottomWidth": 1,
+            "flexDirection": "row",
+            "padding": 20,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontWeight": "bold",
+              "paddingRight": 10,
+            }
+          }
+        >
+          Sender
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 18,
+            }
+          }
+        >
+          new message
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

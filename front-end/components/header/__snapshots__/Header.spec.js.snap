@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match snapshot with props 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "lightseagreen",
+      "height": 80,
+      "justifyContent": "flex-end",
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 24,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    #
+    channel title
+  </Text>
+</View>
+`;
+
+exports[`Header should match snapshot without props 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "lightseagreen",
+      "height": 80,
+      "justifyContent": "flex-end",
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 24,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    #
+    Channel
+  </Text>
+</View>
+`;

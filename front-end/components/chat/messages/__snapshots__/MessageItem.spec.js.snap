@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageItem should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomColor": "#eee",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "padding": 20,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "bold",
+        "paddingRight": 10,
+      }
+    }
+  >
+    Sender
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontSize": 18,
+      }
+    }
+  >
+    message
+  </Text>
+</View>
+`;
