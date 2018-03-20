@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
     borderBottomColor: "#eee"
   },
   message: {
-    fontSize: 18
+    fontSize: 16,
+    flex: 0.9,
+    flexDirection: "column"
   },
   sender: {
     fontWeight: "bold",

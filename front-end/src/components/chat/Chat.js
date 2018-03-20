@@ -4,6 +4,7 @@ import { StyleSheet, View } from "react-native";
 import Header from "../header/Header";
 import MessageList from "./messages/MessageList";
 import MessageInput from "./messages/MessageInput";
+import * as messagesAPI from "../../services/messages";
 
 export default class Chat extends React.Component {
   constructor(props) {
@@ -17,11 +18,14 @@ export default class Chat extends React.Component {
   }
 
   sendMessage(newMessage) {
-    const { messages } = this.state;
-
-    this.setState({
-      messages: [...this.state.messages, newMessage]
-    });
+    messagesAPI
+      .sendMessage()
+      .then(response => response.json())
+      .then(message => {
+        this.setState({
+          messages: [...this.state.messages, newMessage, message]
+        });
+      });
   }
 
   render() {

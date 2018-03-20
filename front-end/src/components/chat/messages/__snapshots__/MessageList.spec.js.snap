@@ -92,7 +92,9 @@ exports[`MessageList should match snapshot 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "fontSize": 18,
+              "flex": 0.9,
+              "flexDirection": "column",
+              "fontSize": 16,
             }
           }
         >
