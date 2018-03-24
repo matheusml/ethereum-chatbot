@@ -13,13 +13,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/messages", async (request, response) => {
+app.post("/messages", (request, response) => {
   const sender = SENDER;
 
   if (request.body && request.body.message) {
-    const ethQueryMessage = await ethQuery(request.body.message);
-    const message = ethQueryMessage || getRandomMessage;
-    response.json({ message, sender });
+    ethQuery(request.body.message)
+      .then(message => {
+        response.json({ message, sender });
+      })
+      .catch(() => {
+        response.json({ message: getRandomMessage(), sender });
+      });
   } else {
     response.json({ message: getRandomMessage(), sender });
   }

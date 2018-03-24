@@ -5,26 +5,31 @@ const { GET_TX, GET_BALANCE } = require("../../utils/constants");
 jest.mock("./web3");
 
 describe("ethQuery", () => {
-  it("should return null when command is invalid", async () => {
-    const response = await ethQuery("");
-    expect(response).toBe(null);
+  it("should reject the promise when the command is invalid", () => {
+    ethQuery("")
+      .then(() => {})
+      .catch(err => {
+        expect(err).toBe(undefined);
+      });
   });
 
-  it("should return transactions", async () => {
+  it("should return transactions", () => {
     web3.eth.getTransaction.mockResolvedValue("transaction");
     const transactionAddress = "123";
 
-    const response = await ethQuery(`${GET_TX} ${transactionAddress}`);
-    expect(response).toEqual({ transaction: "transaction" });
-    expect(web3.eth.getTransaction).toHaveBeenCalledWith(transactionAddress);
+    ethQuery(`${GET_TX} ${transactionAddress}`).then(response => {
+      expect(response).toEqual({ transaction: "transaction" });
+      expect(web3.eth.getTransaction).toHaveBeenCalledWith(transactionAddress);
+    });
   });
 
-  it("should return the balance", async () => {
+  it("should return the balance", () => {
     web3.eth.getBalance.mockResolvedValue("balance");
     const walletAddress = "456";
 
-    const response = await ethQuery(`${GET_BALANCE} ${walletAddress}`);
-    expect(response).toEqual({ balance: "balance" });
-    expect(web3.eth.getBalance).toHaveBeenCalledWith(walletAddress);
+    ethQuery(`${GET_BALANCE} ${walletAddress}`).then(response => {
+      expect(response).toEqual({ balance: "balance" });
+      expect(web3.eth.getBalance).toHaveBeenCalledWith(walletAddress);
+    });
   });
 });
