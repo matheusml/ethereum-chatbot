@@ -48,8 +48,13 @@ export default class MessageInput extends React.Component {
             underlineColorAndroid="transparent"
             placeholder="Send a message"
             onChangeText={typing => this.setState({ typing })}
+            editable={!this.props.loading}
+            selectTextOnFocus={!this.props.loading}
           />
-          <TouchableOpacity onPress={this.sendMessage}>
+          <TouchableOpacity
+            disabled={this.props.loading}
+            onPress={this.sendMessage}
+          >
             <Text style={styles.send}>Send</Text>
           </TouchableOpacity>
         </View>
@@ -59,7 +64,8 @@ export default class MessageInput extends React.Component {
 }
 
 MessageInput.propTypes = {
-  sendMessage: PropTypes.func.isRequired
+  sendMessage: PropTypes.func.isRequired,
+  loading: PropTypes.bool
 };
 
 const styles = StyleSheet.create({

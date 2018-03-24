@@ -97,8 +97,10 @@ exports[`Chat should match snapshot 1`] = `
     >
       <TextInput
         allowFontScaling={true}
+        editable={true}
         onChangeText={[Function]}
         placeholder="Send a message"
+        selectTextOnFocus={true}
         style={
           Object {
             "flex": 1,

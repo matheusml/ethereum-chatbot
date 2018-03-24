@@ -10,12 +10,20 @@ jest.mock("dismissKeyboard");
 const sendMessageMock = jest.fn();
 
 const props = {
-  sendMessage: sendMessageMock
+  sendMessage: sendMessageMock,
+  loading: false
 };
 
 describe("MessageInput", () => {
   it("should match snapshot", () => {
     const tree = renderer.create(<MessageInput {...props} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("should match snapshot with loading", () => {
+    const tree = renderer
+      .create(<MessageInput {...props} loading={true} />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 

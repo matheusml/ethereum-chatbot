@@ -23,8 +23,93 @@ exports[`MessageInput should match snapshot 1`] = `
   >
     <TextInput
       allowFontScaling={true}
+      editable={true}
       onChangeText={[Function]}
       placeholder="Send a message"
+      selectTextOnFocus={true}
+      style={
+        Object {
+          "flex": 1,
+          "fontSize": 18,
+          "paddingHorizontal": 20,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignSelf": "center",
+            "color": "lightseagreen",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "padding": 20,
+          }
+        }
+      >
+        Send
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MessageInput should match snapshot with loading 1`] = `
+<View
+  keyboardVerticalOffset={0}
+  onLayout={[Function]}
+  style={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#eee",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      editable={false}
+      onChangeText={[Function]}
+      placeholder="Send a message"
+      selectTextOnFocus={false}
       style={
         Object {
           "flex": 1,
