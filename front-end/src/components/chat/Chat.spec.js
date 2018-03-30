@@ -8,14 +8,24 @@ jest.mock("../../services/messages");
 
 const sendMessageMock = require("../../services/messages").sendMessage;
 
+const props = {
+  navigation: {
+    state: {
+      params: {
+        channel: "Channel"
+      }
+    }
+  }
+};
+
 describe("Chat", () => {
   it("should match snapshot", () => {
-    const tree = renderer.create(<Chat />).toJSON();
+    const tree = renderer.create(<Chat {...props} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("should have an initial state", () => {
-    const instance = renderer.create(<Chat />).getInstance();
+    const instance = renderer.create(<Chat {...props} />).getInstance();
     expect(instance.state).toEqual({ messages: [], loading: false });
   });
 
@@ -33,7 +43,7 @@ describe("Chat", () => {
     });
 
     it("should invoke sendMessage", () => {
-      const instance = renderer.create(<Chat />).getInstance();
+      const instance = renderer.create(<Chat {...props} />).getInstance();
       instance.sendMessage({
         sender: "Sender from client",
         message: "Message from client"

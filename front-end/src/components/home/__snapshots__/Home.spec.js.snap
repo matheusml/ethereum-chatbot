@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    multiline={true}
+    onChangeText={[Function]}
+    placeholder="Channel name"
+    returnKeyType="next"
+    style={
+      Object {
+        "fontSize": 16,
+        "margin": 10,
+        "padding": 3,
+        "width": 110,
+      }
+    }
+    underlineColorAndroid="transparent"
+    value=""
+  />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "lightseagreen",
+        "borderRadius": 5,
+        "height": 40,
+        "justifyContent": "center",
+        "margin": 10,
+        "opacity": 1,
+        "padding": 3,
+        "width": 100,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Enter
+    </Text>
+  </View>
+</View>
+`;

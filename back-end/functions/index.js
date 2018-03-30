@@ -21,8 +21,8 @@ app.post("/messages", (request, response) => {
       .then(message => {
         response.json({ message, sender });
       })
-      .catch(() => {
-        response.json({ message: getRandomMessage(), sender });
+      .catch(error => {
+        response.json({ message: error, sender });
       });
   } else {
     response.json({ message: getRandomMessage(), sender });

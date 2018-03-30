@@ -33,7 +33,7 @@ exports[`Chat should match snapshot 1`] = `
       }
     >
       #
-      CHANNEL
+      Channel
     </Text>
   </View>
   <RCTScrollView

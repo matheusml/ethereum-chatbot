@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, ActivityIndicator } from "react-native";
+import PropTypes from "prop-types";
 
 import Header from "../header/Header";
 import MessageList from "./messages/MessageList";
@@ -36,9 +37,10 @@ export default class Chat extends React.Component {
   }
 
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
-        <Header title={"CHANNEL"} />
+        <Header title={navigation.state.params.channel} />
         {this.state.loading && (
           <View style={styles.loading}>
             <ActivityIndicator size="large" color="white" />
@@ -53,6 +55,16 @@ export default class Chat extends React.Component {
     );
   }
 }
+
+Chat.propTypes = {
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
+      params: PropTypes.shape({
+        channel: PropTypes.string.isRequired
+      })
+    })
+  })
+};
 
 const styles = StyleSheet.create({
   container: {
