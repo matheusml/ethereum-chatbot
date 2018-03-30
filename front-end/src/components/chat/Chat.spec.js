@@ -5,6 +5,24 @@ import Chat from "./Chat";
 import renderer from "react-test-renderer";
 
 jest.mock("../../services/messages");
+jest.mock("../../config/firebase", () => {
+  return {
+    database: () => {
+      return {
+        ref: () => {
+          return {
+            child: () => {
+              return {
+                on: () => {},
+                push: () => {}
+              };
+            }
+          };
+        }
+      };
+    }
+  };
+});
 
 const sendMessageMock = require("../../services/messages").sendMessage;
 

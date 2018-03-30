@@ -6,6 +6,7 @@ import Header from "../header/Header";
 import MessageList from "./messages/MessageList";
 import MessageInput from "./messages/MessageInput";
 import * as messagesAPI from "../../services/messages";
+import firebaseApp from "../../config/firebase";
 
 export default class Chat extends React.Component {
   constructor(props) {
@@ -16,18 +17,42 @@ export default class Chat extends React.Component {
       loading: false
     };
 
+    this.messagesRef = firebaseApp
+      .database()
+      .ref()
+      .child(props.navigation.state.params.channel);
+
     this.sendMessage = this.sendMessage.bind(this);
+  }
+
+  componentDidMount() {
+    // listening for changes on firebase real time database
+    this.messagesRef.on("value", snap => {
+      const messages = [];
+      snap.forEach(child => {
+        messages.push({
+          sender: child.val().sender,
+          message: child.val().message,
+          _key: child.key
+        });
+      });
+
+      this.setState({
+        messages
+      });
+    });
   }
 
   sendMessage(newMessage) {
     this.setState({ loading: true });
+    this.messagesRef.push(newMessage);
 
     messagesAPI
       .sendMessage()
       .then(response => response.json())
       .then(message => {
+        this.messagesRef.push(message);
         this.setState({
-          messages: [...this.state.messages, newMessage, message],
           loading: false
         });
       })
