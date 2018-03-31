@@ -1,10 +1,10 @@
 import * as firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY || "AIzaSyDl79tH6D__av98YNdlt-0mpghb6wFzMwY",
-  authDomain: "https://ethereum-chatbot.firebaseapp.com/",
-  databaseURL: "https://ethereum-chatbot.firebaseio.com/",
-  storageBucket: "ethereum-chatbot.appspot.com"
+  apiKey: "AIzaSyArTsLDvwQM8MEpPOoletLc9a2ovT5H910",
+  authDomain: "challenge-matheus-lima.firebaseapp.com",
+  databaseURL: "https://challenge-matheus-lima.firebaseio.com",
+  storageBucket: "challenge-matheus-lima.appspot.com"
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);

@@ -1,6 +1,6 @@
 {
   "projects": {
-    "staging": "ethereum-chatbot",
-    "default": "ethereum-chatbot"
+    "staging": "challenge-matheus-lima",
+    "default": "challenge-matheus-lima"
   }
 }

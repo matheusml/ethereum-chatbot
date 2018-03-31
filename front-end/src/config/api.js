@@ -1,2 +1,2 @@
 export const API =
-  process.env.API || "https://ethereum-chatbot.firebaseapp.com";
+  process.env.API || "https://challenge-matheus-lima.firebaseapp.com";
