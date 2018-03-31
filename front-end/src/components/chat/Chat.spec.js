@@ -66,7 +66,7 @@ describe("Chat", () => {
         sender: "Sender from client",
         message: "Message from client"
       });
-      expect(sendMessageMock).toHaveBeenCalledWith();
+      expect(sendMessageMock).toHaveBeenCalledWith("Message from client");
     });
   });
 });

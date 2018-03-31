@@ -48,7 +48,7 @@ export default class Chat extends React.Component {
     this.messagesRef.push(newMessage);
 
     messagesAPI
-      .sendMessage()
+      .sendMessage(newMessage.message)
       .then(response => response.json())
       .then(message => {
         this.messagesRef.push(message);
