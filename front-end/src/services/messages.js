@@ -5,8 +5,8 @@ export function sendMessage(message) {
   return fetch(`${API}/messages`, {
     method: "POST",
     headers,
-    body: {
+    body: JSON.stringify({
       message
-    }
+    })
   });
 }
