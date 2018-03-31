@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading should match snapshot with loading as false 1`] = `null`;
+
+exports[`Loading should match snapshot with loading as true 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "black",
+      "bottom": 0,
+      "justifyContent": "center",
+      "left": 0,
+      "opacity": 0.6,
+      "position": "absolute",
+      "right": 0,
+      "top": 0,
+      "zIndex": 1,
+    }
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="white"
+    hidesWhenStopped={true}
+    size="large"
+  />
+</View>
+`;

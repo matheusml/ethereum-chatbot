@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, View, ActivityIndicator } from "react-native";
+import { StyleSheet, View, ListView } from "react-native";
 import PropTypes from "prop-types";
 
 import Header from "../header/Header";
 import MessageList from "./messages/MessageList";
 import MessageInput from "./messages/MessageInput";
+import Loading from "../loading/Loading";
 import * as messagesAPI from "../../services/messages";
 import firebaseApp from "../../config/firebase";
 
@@ -13,7 +14,9 @@ export default class Chat extends React.Component {
     super(props);
 
     this.state = {
-      messages: [],
+      messages: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2
+      }),
       loading: false
     };
 
@@ -28,9 +31,9 @@ export default class Chat extends React.Component {
   componentDidMount() {
     // listening for changes on firebase real time database
     this.messagesRef.on("value", snap => {
-      const messages = [];
+      const items = [];
       snap.forEach(child => {
-        messages.push({
+        items.push({
           sender: child.val().sender,
           message: child.val().message,
           _key: child.key
@@ -38,7 +41,7 @@ export default class Chat extends React.Component {
       });
 
       this.setState({
-        messages
+        messages: this.state.messages.cloneWithRows(items)
       });
     });
   }
@@ -66,11 +69,7 @@ export default class Chat extends React.Component {
     return (
       <View style={styles.container}>
         <Header title={navigation.state.params.channel} />
-        {this.state.loading && (
-          <View style={styles.loading}>
-            <ActivityIndicator size="large" color="white" />
-          </View>
-        )}
+        <Loading loading={this.state.loading} />
         <MessageList messages={this.state.messages} />
         <MessageInput
           loading={this.state.loading}
@@ -95,17 +94,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
-  },
-  loading: {
-    zIndex: 1,
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "black",
-    opacity: 0.6
   }
 });

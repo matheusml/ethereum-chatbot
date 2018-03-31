@@ -44,7 +44,8 @@ describe("Chat", () => {
 
   it("should have an initial state", () => {
     const instance = renderer.create(<Chat {...props} />).getInstance();
-    expect(instance.state).toEqual({ messages: [], loading: false });
+    expect(instance.state.message).not.toBe(null);
+    expect(instance.state.loading).toBe(false);
   });
 
   describe("sendMessage", () => {
