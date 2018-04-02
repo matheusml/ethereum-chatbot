@@ -1,5 +1,9 @@
 {
   "expo": {
-    "sdkVersion": "25.0.0"
+   "name": "Ethereum Chatbot",
+   "icon": "./logo.png",
+   "version": "1.0.0",
+   "slug": "ethereum-chatbot",
+   "sdkVersion": "25.0.0"
   }
 }

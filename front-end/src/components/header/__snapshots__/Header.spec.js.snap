@@ -5,7 +5,7 @@ exports[`Header should match snapshot with props 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "lightseagreen",
+      "backgroundColor": "#0aa6dd",
       "height": 80,
       "justifyContent": "flex-end",
       "padding": 10,
@@ -35,7 +35,7 @@ exports[`Header should match snapshot without props 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "lightseagreen",
+      "backgroundColor": "#0aa6dd",
       "height": 80,
       "justifyContent": "flex-end",
       "padding": 10,

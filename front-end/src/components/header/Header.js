@@ -23,7 +23,7 @@ Header.propTypes = {
 const styles = StyleSheet.create({
   header: {
     height: 80,
-    backgroundColor: "lightseagreen",
+    backgroundColor: "#0aa6dd",
     alignItems: "center",
     justifyContent: "flex-end",
     padding: 10

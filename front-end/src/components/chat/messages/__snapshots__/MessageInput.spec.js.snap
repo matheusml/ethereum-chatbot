@@ -69,7 +69,7 @@ exports[`MessageInput should match snapshot 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "color": "lightseagreen",
+            "color": "#0aa6dd",
             "fontSize": 16,
             "fontWeight": "bold",
             "padding": 20,
@@ -152,7 +152,7 @@ exports[`MessageInput should match snapshot with loading 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "color": "lightseagreen",
+            "color": "#0aa6dd",
             "fontSize": 16,
             "fontWeight": "bold",
             "padding": 20,

@@ -49,7 +49,7 @@ exports[`Home should match snapshot 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "lightseagreen",
+        "backgroundColor": "#0aa6dd",
         "borderRadius": 5,
         "height": 40,
         "justifyContent": "center",

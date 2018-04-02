@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   send: {
     alignSelf: "center",
-    color: "lightseagreen",
+    color: "#0aa6dd",
     fontSize: 16,
     fontWeight: "bold",
     padding: 20
