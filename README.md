@@ -9,14 +9,14 @@ cd back-end
 
 Install the dependencies
 ```
-npm i
+npm install
 cd functions
-npm i
+npm install
 ```
 
 To run the tests, go the `back-end` folder and run:
 ```
-npm t
+npm test
 ```
 
 To run the app, type:
@@ -25,4 +25,26 @@ firebase serve --only functions,hosting
 ```
 
 The aplication is hosted at: https://ethereum-chatbot.firebaseapp.com/messages
+
+### Front-end
+Enter the folder:
+```
+cd front-end
+```
+
+Install the dependencies
+```
+npm install
+```
+
+To run the tests, simply run:
+```
+npm test
+```
+
+To run the app, type:
+```
+npm start
+```
+
 

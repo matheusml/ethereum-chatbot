@@ -3,12 +3,47 @@ import { StyleSheet, Text, View } from "react-native";
 import PropTypes from "prop-types";
 
 export default class MessageItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.renderContent = this.renderContent.bind(this);
+    this.renderTransaction = this.renderTransaction.bind(this);
+    this.renderBalance = this.renderBalance.bind(this);
+  }
+
+  renderBalance({ balance }) {
+    return <Text style={styles.balance}>Balance: {balance}</Text>;
+  }
+
+  renderTransaction({ transaction }) {
+    return (
+      <View>
+        <Text style={styles.transaction}>
+          Block hash: {transaction.blockHash}
+        </Text>
+        <Text style={styles.transaction}>From: {transaction.from}</Text>
+        <Text style={styles.transaction}>To: {transaction.to}</Text>
+        <Text style={styles.transaction}>Value: {transaction.value}</Text>
+        <Text style={styles.transaction}>Gas: {transaction.gas}</Text>
+      </View>
+    );
+  }
+
+  renderContent(message) {
+    if (message.transaction) {
+      return this.renderTransaction(message);
+    } else if (message.balance) {
+      return this.renderBalance(message);
+    }
+    return <Text style={styles.message}>{message}</Text>;
+  }
+
   render() {
-    const { item } = this.props;
+    const { item: { sender, message } } = this.props;
     return (
       <View style={styles.row}>
-        <Text style={styles.sender}>{item.sender}</Text>
-        <Text style={styles.message}>{item.message}</Text>
+        <Text style={styles.sender}>{sender}</Text>
+        {this.renderContent(message)}
       </View>
     );
   }
@@ -17,8 +52,8 @@ export default class MessageItem extends React.Component {
 MessageItem.propTypes = {
   item: PropTypes.shape({
     sender: PropTypes.string,
-    message: PropTypes.string
-  })
+    message: PropTypes.any
+  }).isRequired
 };
 
 const styles = StyleSheet.create({
@@ -26,12 +61,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 20,
     borderBottomWidth: 1,
-    borderBottomColor: "#eee"
+    borderBottomColor: "#eee",
+    flexDirection: "column",
+    flex: 0.9
+  },
+  balance: {
+    fontSize: 16,
+    fontStyle: "italic"
+  },
+  transaction: {
+    fontSize: 12,
+    fontStyle: "italic"
   },
   message: {
-    fontSize: 16,
-    flex: 0.9,
-    flexDirection: "column"
+    fontSize: 16
   },
   sender: {
     fontWeight: "bold",

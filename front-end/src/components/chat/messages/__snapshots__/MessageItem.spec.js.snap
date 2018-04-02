@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MessageItem should match snapshot 1`] = `
+exports[`MessageItem should match balance message snapshot 1`] = `
 <View
   style={
     Object {
       "borderBottomColor": "#eee",
       "borderBottomWidth": 1,
-      "flexDirection": "row",
+      "flex": 0.9,
+      "flexDirection": "column",
       "padding": 20,
     }
   }
@@ -30,13 +31,153 @@ exports[`MessageItem should match snapshot 1`] = `
     ellipsizeMode="tail"
     style={
       Object {
-        "flex": 0.9,
-        "flexDirection": "column",
+        "fontSize": 16,
+        "fontStyle": "italic",
+      }
+    }
+  >
+    Balance: 
+    1
+  </Text>
+</View>
+`;
+
+exports[`MessageItem should match regular message snapshot 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomColor": "#eee",
+      "borderBottomWidth": 1,
+      "flex": 0.9,
+      "flexDirection": "column",
+      "padding": 20,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "bold",
+        "paddingRight": 10,
+      }
+    }
+  >
+    Sender
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
         "fontSize": 16,
       }
     }
   >
     message
   </Text>
+</View>
+`;
+
+exports[`MessageItem should match transaction message snapshot 1`] = `
+<View
+  style={
+    Object {
+      "borderBottomColor": "#eee",
+      "borderBottomWidth": 1,
+      "flex": 0.9,
+      "flexDirection": "column",
+      "padding": 20,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontWeight": "bold",
+        "paddingRight": 10,
+      }
+    }
+  >
+    Sender
+  </Text>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 12,
+          "fontStyle": "italic",
+        }
+      }
+    >
+      Block hash: 
+      0
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 12,
+          "fontStyle": "italic",
+        }
+      }
+    >
+      From: 
+      1
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 12,
+          "fontStyle": "italic",
+        }
+      }
+    >
+      To: 
+      2
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 12,
+          "fontStyle": "italic",
+        }
+      }
+    >
+      Value: 
+      3
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 12,
+          "fontStyle": "italic",
+        }
+      }
+    >
+      Gas: 
+      4
+    </Text>
+  </View>
 </View>
 `;
