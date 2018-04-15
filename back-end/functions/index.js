@@ -22,7 +22,11 @@ app.post("/messages", (request, response) => {
         response.json({ message, sender });
       })
       .catch(error => {
-        response.json({ message: error || getRandomMessage(), sender });
+        if (error) {
+          response.json({ message: error, sender });
+        } else {
+          response.json({ message: getRandomMessage(), sender });
+        }
       });
   } else {
     response.json({ message: getRandomMessage(), sender });

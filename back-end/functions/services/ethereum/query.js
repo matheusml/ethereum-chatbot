@@ -7,11 +7,15 @@ const ethQuery = message => {
       const transactionAddress = message.split(" ")[1];
       return web3.eth.getTransaction(transactionAddress).then(transaction => {
         return resolve({ transaction });
+      }).catch(() => {
+        return reject(`Unable to find transaction for address: ${transactionAddress}`);
       });
     } else if (message.startsWith(GET_BALANCE)) {
       const walletAddress = message.split(" ")[1];
       return web3.eth.getBalance(walletAddress).then(balance => {
         return resolve({ balance });
+      }).catch(() => {
+        return reject(`Unable to find balance for wallet: ${walletAddress}`);
       });
     }
 

@@ -13,7 +13,7 @@ describe("ethQuery", () => {
       });
   });
 
-  it("should return transactions", () => {
+  it("should return transactions for a valid address", () => {
     web3.eth.getTransaction.mockResolvedValue("transaction");
     const transactionAddress = "123";
 
@@ -23,12 +23,32 @@ describe("ethQuery", () => {
     });
   });
 
-  it("should return the balance", () => {
+  it("should return an error for invalid address", () => {
+    web3.eth.getTransaction.mockReturnValue(Promise.reject(''));
+    const transactionAddress = "123";
+
+    ethQuery(`${GET_TX} ${transactionAddress}`).then().catch(err => {
+      expect(err).toEqual('Unable to find transaction for address: ' + transactionAddress);
+      expect(web3.eth.getTransaction).toHaveBeenCalledWith(transactionAddress);
+    });
+  });
+
+  it("should return the balance for a valid wallet address", () => {
     web3.eth.getBalance.mockResolvedValue("balance");
     const walletAddress = "456";
 
     ethQuery(`${GET_BALANCE} ${walletAddress}`).then(response => {
       expect(response).toEqual({ balance: "balance" });
+      expect(web3.eth.getBalance).toHaveBeenCalledWith(walletAddress);
+    });
+  });
+
+  it("should return an error for invalid wallet address", () => {
+    web3.eth.getBalance.mockReturnValue(Promise.reject(''));
+    const walletAddress = "456";
+
+    ethQuery(`${GET_BALANCE} ${walletAddress}`).then().catch(err => {
+      expect(err).toEqual('Unable to find balance for wallet: ' + 456);
       expect(web3.eth.getBalance).toHaveBeenCalledWith(walletAddress);
     });
   });
