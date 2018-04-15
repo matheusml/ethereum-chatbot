@@ -30,30 +30,30 @@ export default class MessageItem extends React.Component {
     );
   }
 
-  renderMessage(message) {
-    if (message.startsWith('/')) {
-      return <Text style={styles.command}>{message}</Text>;
-    } else if (message.error) {
+  renderMessage(message, error) {
+    if (error) {
       return <Text style={styles.errorMessage}>{message}</Text>;
+    } else if (message.startsWith('/')) {
+      return <Text style={styles.command}>{message}</Text>;
     }
     return <Text style={styles.message}>{message}</Text>;
   }
 
-  renderContent(message) {
+  renderContent(message, error) {
     if (message.transaction) {
       return this.renderTransaction(message);
     } else if (message.balance) {
       return this.renderBalance(message);
     }
-    return this.renderMessage(message);
+    return this.renderMessage(message, error);
   }
 
   render() {
-    const { item: { sender, message } } = this.props;
+    const { item: { sender, message, error } } = this.props;
     return (
       <View style={styles.row}>
         <Text style={styles.sender}>{sender}</Text>
-        {this.renderContent(message)}
+        {this.renderContent(message, error)}
       </View>
     );
   }
