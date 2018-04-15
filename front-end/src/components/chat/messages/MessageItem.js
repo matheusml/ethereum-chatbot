@@ -30,30 +30,28 @@ export default class MessageItem extends React.Component {
     );
   }
 
-  renderMessage(message, error) {
-    if (error) {
-      return <Text style={styles.errorMessage}>{message}</Text>;
-    } else if (message.startsWith('/')) {
+  renderMessage(message) {
+    if (message.startsWith('/')) {
       return <Text style={styles.command}>{message}</Text>;
-    }
+    } 
     return <Text style={styles.message}>{message}</Text>;
   }
 
-  renderContent(message, error) {
+  renderContent(message) {
     if (message.transaction) {
       return this.renderTransaction(message);
     } else if (message.balance) {
       return this.renderBalance(message);
     }
-    return this.renderMessage(message, error);
+    return this.renderMessage(message);
   }
 
   render() {
-    const { item: { sender, message, error } } = this.props;
+    const { item: { sender, message } } = this.props;
     return (
       <View style={styles.row}>
         <Text style={styles.sender}>{sender}</Text>
-        {this.renderContent(message, error)}
+        {this.renderContent(message)}
       </View>
     );
   }
@@ -90,11 +88,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontStyle: "italic",
     color: '#696969'
-  },
-  errorMessage: {
-    fontSize: 16,
-    fontStyle: 'italic',
-    color: '#daa520'
   },
   sender: {
     fontWeight: "bold",
