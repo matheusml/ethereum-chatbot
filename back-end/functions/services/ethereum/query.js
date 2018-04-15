@@ -1,5 +1,6 @@
 const { web3 } = require("./web3");
 const { GET_TX, GET_BALANCE } = require("../../utils/constants");
+const { getBalance } = require("./balance");
 
 const ethQuery = message => {
   return new Promise((resolve, reject) => {
@@ -12,9 +13,10 @@ const ethQuery = message => {
       });
     } else if (message.startsWith(GET_BALANCE)) {
       const walletAddress = message.split(" ")[1];
-      return web3.eth.getBalance(walletAddress).then(balance => {
-        return resolve({ balance });
-      }).catch(() => {
+      return getBalance(walletAddress).then(response => response.json()).then(response => {
+        if (response.status === '1') {
+          return resolve({ balance: response.result });
+        }
         return reject(`Unable to find balance for wallet: ${walletAddress}`);
       });
     }
