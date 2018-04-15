@@ -38,6 +38,7 @@ exports[`MessageItem should match balance message snapshot 1`] = `
   >
     Balance: 
     1
+     (Wei)
   </Text>
 </View>
 `;

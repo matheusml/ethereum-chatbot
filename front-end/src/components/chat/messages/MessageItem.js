@@ -9,10 +9,11 @@ export default class MessageItem extends React.Component {
     this.renderContent = this.renderContent.bind(this);
     this.renderTransaction = this.renderTransaction.bind(this);
     this.renderBalance = this.renderBalance.bind(this);
+    this.renderMessage = this.renderMessage.bind(this);
   }
 
   renderBalance({ balance }) {
-    return <Text style={styles.balance}>Balance: {balance}</Text>;
+    return <Text style={styles.balance}>Balance: {balance} (Wei)</Text>;
   }
 
   renderTransaction({ transaction }) {
@@ -29,13 +30,22 @@ export default class MessageItem extends React.Component {
     );
   }
 
+  renderMessage(message) {
+    if (message.startsWith('/')) {
+      return <Text style={styles.command}>{message}</Text>;
+    } else if (message.error) {
+      return <Text style={styles.errorMessage}>{message}</Text>;
+    }
+    return <Text style={styles.message}>{message}</Text>;
+  }
+
   renderContent(message) {
     if (message.transaction) {
       return this.renderTransaction(message);
     } else if (message.balance) {
       return this.renderBalance(message);
     }
-    return <Text style={styles.message}>{message}</Text>;
+    return this.renderMessage(message);
   }
 
   render() {
@@ -75,6 +85,16 @@ const styles = StyleSheet.create({
   },
   message: {
     fontSize: 16
+  },
+  command: {
+    fontSize: 16,
+    fontStyle: "italic",
+    color: '#696969'
+  },
+  errorMessage: {
+    fontSize: 16,
+    fontStyle: 'italic',
+    color: '#daa520'
   },
   sender: {
     fontWeight: "bold",
